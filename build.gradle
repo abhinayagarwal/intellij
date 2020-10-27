@@ -24,8 +24,8 @@ dependencies {
 
 
 intellij {
-    // version = 'IC-2019.3'
-    localPath = '/home/itachi/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/193.7288.26'
+     version = 'IC-2019.3.5'
+    // localPath = '/home/itachi/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/193.7288.26'
     // downloadSources = true
     plugins = [ 'IntelliLang', 'gradle', 'maven', 'java' ]
     pluginName 'Gluon Plugin'
