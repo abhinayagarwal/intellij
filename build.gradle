@@ -1,0 +1,40 @@
+plugins {
+    id "org.jetbrains.intellij" version "0.4.16"
+}
+
+apply plugin: 'java'
+apply plugin: 'org.jetbrains.intellij'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'https://nexus.gluonhq.com/nexus/content/repositories/releases'
+    }
+}
+
+dependencies {
+    compile 'com.gluonhq:ide-plugin-templates:2.10.2'
+}
+
+
+intellij {
+    // version = 'IC-2019.3'
+    localPath = '/home/itachi/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/193.7288.26'
+    // downloadSources = true
+    plugins = [ 'IntelliLang', 'gradle', 'maven', 'java' ]
+    pluginName 'Gluon Plugin'
+    updateSinceUntilBuild false
+    sandboxDirectory = "${rootProject.projectDir}/idea-sandbox"
+}
+
+publishPlugin {
+    username intellijPublishUsername
+    password intellijPublishPassword
+    token intellijPublishToken
+}
